@@ -29,6 +29,8 @@ from tensorflow.keras.metrics import categorical_crossentropy
 
 st.sidebar.title("Created By:")
 st.sidebar.markdown("Isha Indhu S")
+st.sidebar.subheader("To access the complete project: ")
+st.sidebar.markdown("https://github.com/IshaIndhu/DL-Binary-Classification-Higgs-Boson")
 
 def pre_processing(df):
 	le = preprocessing.LabelEncoder()
@@ -106,5 +108,7 @@ if option == "Upload the Dataset":
 		from sklearn.metrics import classification_report,confusion_matrix
 		y_pred = np.argmax(prediction,axis = -1)
 
+		st.subheader("CLASSIFICATION REPORT: ")
+		st.table(classification_report(y_test,y_pred, target_names = ["b","s"], output_dict=True))
 		st.subheader("The Accuracy obtained from the test data: ")
 		st.write(accuracy_score(y_test, y_pred))
